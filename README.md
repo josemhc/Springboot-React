@@ -16,7 +16,9 @@ En Windows
 mvnw.cmd clean package -DskipTests
 ``````
 
-Asegúrate de que se haya generado target/demo-0.0.1-SNAPSHOT.jar
+Asegurarse de que se haya generado target/demo-0.0.1-SNAPSHOT.jar
+
+En la raiz del proyecto ejecutar"
 
 ``````
 docker compose up --build
