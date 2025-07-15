@@ -21,7 +21,7 @@
 .mvn/timing.properties
 
 # === FRONTEND (React) ===
-/node_modules/
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -46,3 +46,5 @@ Thumbs.db
 ehthumbs.db
 .DS_Store
 Icon?
+
+docker-compose.yml

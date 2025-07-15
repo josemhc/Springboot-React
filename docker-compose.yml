@@ -1,28 +1,19 @@
+version: '3.8'
+
 services:
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    networks:
-      - webnet
-
-  backend:
-    build:
-      context: ./demo
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    networks:
-      - webnet
-
   db:
-    image: mysql:5.7
+    image: mysql:8.0
+    container_name: mysql-spring
+    restart: always
+    ports:
+      - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: spring
-      MYSQL_DATABASE: Spring123!
+      MYSQL_ROOT_PASSWORD: root
     volumes:
-      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - webnet
+      - springboot-network
+
+networks:
+  springboot-network:
+    driver: bridge

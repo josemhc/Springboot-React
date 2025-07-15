@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS springboot;
+
+CREATE USER IF NOT EXISTS 'spring'@'%' IDENTIFIED BY 'Spring123!';
+
+GRANT ALL PRIVILEGES ON springboot.* TO 'spring'@'%';
+
+FLUSH PRIVILEGES;
