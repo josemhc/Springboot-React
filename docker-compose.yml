@@ -1,0 +1,28 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - webnet
+
+  backend:
+    build:
+      context: ./demo
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - webnet
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: spring
+      MYSQL_DATABASE: Spring123!
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - webnet

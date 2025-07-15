@@ -1,0 +1,48 @@
+# === BACKEND (Spring Boot with Maven) ===
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+**/logs/
+*.log
+*.class
+*.jar
+*.war
+*.iml
+.DS_Store
+.idea/
+*.db
+
+# IntelliJ / VS Code
+*.ipr
+*.iws
+/.idea/
+/.vscode/
+
+# Maven local repo cache
+.mvn/timing.properties
+
+# === FRONTEND (React) ===
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/build/
+/dist/
+
+# dotenv (si usas variables de entorno)
+.env
+.env.*
+
+# === General ===
+*.log
+*.swp
+*.tmp
+*.bak
+*.old
+*.orig
+*~
+
+# OS generated
+Thumbs.db
+ehthumbs.db
+.DS_Store
+Icon?
