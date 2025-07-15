@@ -1,16 +1,46 @@
 version: '3.8'
 
 services:
-  db:
-    image: mysql:8.0
-    container_name: mysql-spring
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend-spring
     restart: always
     ports:
-      - "3306:3306"
+      - "3000:3000"
+    networks:
+      - springboot-network
+    depends_on:
+      - backend
+  backend:
+    build:
+      context: ./demo
+      dockerfile: Dockerfile
+    container_name: backend-spring
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - springboot-network
+    depends_on:
+          mysql-spring:
+            condition: service_healthy
+  mysql-spring:
+    image: mysql:8
+    container_name: mysql-spring
     environment:
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      MYSQL_DATABASE: springboot
+      MYSQL_USER: spring
+      MYSQL_PASSWORD: Spring123!
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-pSpring123!"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
     networks:
       - springboot-network
 
