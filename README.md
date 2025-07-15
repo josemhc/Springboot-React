@@ -6,8 +6,14 @@
 
 ``````
 cd demo
-
-./mvnw clean package
+``````
+En Linux
+``````
+./mvnw clean package -DskipTests
+``````
+En Windows
+``````
+mvnw.cmd clean package -DskipTests
 ``````
 
 Asegúrate de que se haya generado target/demo-0.0.1-SNAPSHOT.jar
