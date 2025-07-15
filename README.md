@@ -2,6 +2,16 @@
 
 ## Correr la aplicacion web en docker
 
+### Compila el backend (Spring Boot):
+
+``````
+cd demo
+
+./mvnw clean package
+``````
+
+Asegúrate de que se haya generado target/demo-0.0.1-SNAPSHOT.jar
+
 ``````
 docker compose up --build
 ``````
