@@ -1,6 +1,10 @@
 # 🧩 SpringBoot + React: CRUD de Clientes
 
-## Correr la aplicacion web
+# En la rama docker se encuentra la aplicación dockerizada
+
+# En esta rama main se encuentra la aplicación en local host
+
+## Correr la aplicación web
 
 ## Correr la API REST en Linux
 
